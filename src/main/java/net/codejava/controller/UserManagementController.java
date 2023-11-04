@@ -1,14 +1,14 @@
 package net.codejava.controller;
 
-import lombok.SneakyThrows;
 import net.codejava.entity.UserLoginStatus;
-import net.codejava.model.*;
+import net.codejava.model.LoginRequest;
+import net.codejava.model.LoginResponse;
+import net.codejava.model.UserDto;
+import net.codejava.model.UserDtoResponse;
 import net.codejava.repository.UserLoginStatusRepository;
 import net.codejava.service.CustomUserDetailsService;
 import net.codejava.service.LoginService.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.naming.AuthenticationException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -68,35 +65,4 @@ public class UserManagementController {
         return "logged out";
         /*return "redirect:/";*/
     }
-
-    @Autowired
-    private JavaMailSender mailSender;
-
-    @Autowired
-    private CustomerServices customerService;
-
-    @GetMapping("/forgot_password")
-    public String showForgotPasswordForm() {
-
-    }
-
-    @PostMapping("/forgot_password")
-    public String processForgotPassword() {
-    }
-
-    public void sendEmail(){
-
-    }
-
-
-    @GetMapping("/reset_password")
-    public String showResetPasswordForm() {
-
-    }
-
-    @PostMapping("/reset_password")
-    public String processResetPassword() {
-
-    }
-
 }
